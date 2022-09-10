@@ -1,0 +1,16 @@
+.Home { 
+    padding: 2% 4%;
+}
+
+.home-register { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-title { 
+    font-weight: 300;
+}
+
+.home-register__text { 
+    width: 50%;
+}
