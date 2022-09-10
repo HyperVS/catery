@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Firebase config
+catery-9be91-firebase-adminsdk-10fky-df83294f58.json
+
+# Mac folder
+.DS_Store
