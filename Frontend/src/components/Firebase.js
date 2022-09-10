@@ -28,4 +28,12 @@ const app = !firebase.apps.length
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => { 
+    const user = userCredential.user;
+  })
+  .catch(( error ) => { 
+    const errorCode = error.code;
+  })
+
 export default app;
