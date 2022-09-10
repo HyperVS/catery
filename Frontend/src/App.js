@@ -1,3 +1,4 @@
+
 import ReactDOM from "react-dom/client";
 
 import './styles/App.css';
@@ -23,8 +24,7 @@ function App() {
         </Routes>
         <Footer></Footer>
     </Router>
-    
+
   );
 }
 
-export default App;

@@ -1,0 +1,29 @@
+.Home { 
+    padding: 40px;
+}
+.home-register { 
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.home-title { 
+    font-weight: 300;
+}
+
+.home-register__text { 
+    width: 70%;
+}
+      
+.home-register__client{
+     max-width: 40%;
+     min-width: 150px;
+}
+
+  .home-register__service{
+     max-width: 40%;
+     min-width: 150px;
+   }
+
+   .home-register__text {
+    font-weight: 400;
+   }
