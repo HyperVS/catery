@@ -5,6 +5,7 @@
     padding: 8px 20px;
 }
 
+
 .signup-service, .signup-user { 
     /* display: inline-block; */
     max-width: 46%;    
@@ -15,6 +16,7 @@
 .signup { 
     display: flex;
     flex-wrap: wrap; 
+    justify-content: space-around;
     /* flex-direction: row; */
 }
 

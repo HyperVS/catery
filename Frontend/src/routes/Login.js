@@ -1,4 +1,5 @@
 import "../styles/Login.css"
+import "../styles/index.css"
 import app from "../components/Firebase";
 import {  getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {useState} from "react";
