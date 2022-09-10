@@ -10,6 +10,9 @@
     font-weight: 300;
 }
 
+.home-register__text { 
+    width: 70%;
+}
       
 .home-register__client{
      max-width: 40%;

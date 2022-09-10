@@ -1,16 +1,15 @@
-import "../styles/Login.css"
+import "../styles/Login.css";
 
-export default function Login() { 
+export default function SignupClient() { 
     return (
         <div className="login">
             <div className="container">
                 <h1 className="login-title"> Catery </h1>
-                <h3> Login </h3>
+                <h3> Client Sign Up </h3>
                 <input type="text" placeholder="Email"/>
                 <input type="password" placeholder="****"/>
-                <a href="#!"> Forgot Your Password? </a>
                 <input type="submit" value="Login"/>
             </div>
         </div>
     );
-} 
+}

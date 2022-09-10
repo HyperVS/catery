@@ -1,0 +1,23 @@
+.signup-service a, .signup-user a { 
+    color: black;
+    border: black 1px solid; 
+    border-radius: 3px;
+    padding: 8px 20px;
+}
+
+.signup-service, .signup-user { 
+    /* display: inline-block; */
+    max-width: 46%;    
+    padding: 2%;
+    /* margin:  */
+}
+
+.signup { 
+    display: flex;
+    flex-wrap: wrap; 
+    /* flex-direction: row; */
+}
+
+.signup-title{ 
+    padding-left: 2%;
+}
