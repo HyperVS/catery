@@ -1,0 +1,59 @@
+.navbar{
+    background-color: black;
+    min-height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  
+  .navbar-btns{
+    display: flex;
+    justify-content: space-evenly;
+  }  
+  
+  .log-in{
+    background-color: black;
+    color: white;
+    border: none;
+    margin-right: 20px;
+  }
+  
+  .sign-up{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+  }
+  
+  .sign-up:hover{
+    background-color: rgba(250, 250, 250, 0.9);
+    cursor: pointer;
+  }
+  
+  
+  .log-in:hover{
+    background-color: rgba(76, 76, 76, 0.6);
+    cursor: pointer;
+  }
+  
+  
+  .logo{
+    margin:0;
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: "Bebas Neue";
+  }
+  
+  .home-content{
+    display: flex;
+    flex-direction: row;
+  
+  }
+  
+  .register{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
