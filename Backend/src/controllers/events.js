@@ -1,4 +1,5 @@
 const Event = require("../db/models/Event");
+const Client = require("../db/models/Client");
 
 const ServerError = require("../helpers/ServerError");
 const { isObjectIdValid } = require("../helpers/isObjectIdValid");
@@ -27,34 +28,60 @@ exports.getEventById = async (req, res, next) => {
     }
 };
 
+//Get all events by user id (host)
+exports.getEventsByUserId = async (req, res, next) => {
+    try {
+        if(!isObjectIdValid(req.query.id)) throw new ServerError("id is invalid", 400);
+
+        const events = await Event.find({host: req.query.id})
+        res.send(events);
+
+    } catch (error) {
+        next(error);
+    }
+};
+
 //Create an event
 exports.createEvent = async (req, res, next) => {
     try {
+        console.log(typeof req.body.capacity)
         if (!req.body.name || typeof req.body.name !== "string") throw new ServerError("name is invalid", 400);
-        if (!req.body.date || !(req.body.date instanceof Date)) throw new ServerError("role is invalid", 400);
-        if (!req.body.password || typeof req.body.password !== "string") throw new ServerError("password is invalid", 400);
-        if (!req.body.displayName || typeof req.body.displayName !== "string") throw new ServerError("displayName is invalid", 400);
-        if (!req.body.phone || typeof req.body.phone !== "string") throw new ServerError("phone is invalid", 400);
-        if (isNaN(req.body.date)) throw new ServerError("date is invalid", 400);
+        if (!req.body.date || !(req.body.date instanceof Date)) throw new ServerError("date is invalid", 400);
+        if (!req.body.location || typeof req.body.location !== "string") throw new ServerError("locaton is invalid", 400);
+        if (!req.body.capacity || isNaN(req.body.capacity)) throw new ServerError("capacty is invalid", 400);
+        if (!req.body.requests || typeof req.body.requests !== "object") throw new ServerError("requests are invalid", 400);
+        if (!req.body.hostId || typeof req.body.hostId !== "string") throw new ServerError("host is invalid", 400);
 
-        // Check if email already exists
-        const checkEmail = await User.findOne({ email: req.body.email });
-        if (checkEmail != null) throw new ServerError("email already exists", 409);
+        //Check if host exists
+        const client = Client.findOne({_id: req.body.hostId});
+        if (!client) throw new ServerError("client not found", 404);
 
-        const firebaseResult = await admin.auth().createUser({
-            email: req.body.email,
-            password: req.body.password,
-            disabled: false
+        const newEvent = new Event({
+            name: req.body.name,
+            date: req.body.date,
+            location: req.body.location,
+            capacity: req.body.capacity,
+            requests: req.body.requests,
+            hostId: req.body.hostId
         });
-        const newUser = new User({
-            _id: firebaseResult.uid,
-            email: req.body.email,
-            role: req.body.role,
-            displayName: req.body.displayName,
-            phone: req.body.phone
-        });
-        const createdUser = await newUser.save();
-        res.status(201).send(createdUser);
+        const createdEvent = await newEvent.save();
+        res.status(201).send(createdEvent);
+    } catch (error) {
+        next(error);
+    }
+};
+
+exports.deleteEvent = async (req, res, next) => {
+    try {
+        if (!isObjectIdValid(req.body.id)) throw new ServerError("id is invalid", 400);
+
+        //Check if event exists
+        const event = await Event.findOne({_id: req.body.id});
+        if (!event) throw new ServerError("event not found", 404);
+
+        await Event.findOneAndDelete({ _id: req.body.id });
+
+        res.status(200).send(event);
     } catch (error) {
         next(error);
     }

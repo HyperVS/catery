@@ -1,10 +1,8 @@
 import "../styles/Login.css"
 import "../styles/index.css"
-import app from "../components/Firebase";
-import {  getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../components/Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-
-const auth = getAuth(app);
 
 export  default function Login() { 
     const [email, setEmail] = useState("");

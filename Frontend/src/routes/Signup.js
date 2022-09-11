@@ -1,6 +1,5 @@
 import "../styles/Signup.css"
 import Navbar from "../components/Navbar"
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Footer from "../components/Footer"
 export default function Signup() { 

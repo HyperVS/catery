@@ -3,11 +3,10 @@ const User = require("./User");
 
 const contractorSchema = new mongoose.Schema({
     rating: {
-        type: String,
+        type: Number,
     },
     description: {
         type: String,
-        // required: true
     },
     clients: {
         type: [{
