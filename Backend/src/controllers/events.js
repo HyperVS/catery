@@ -33,7 +33,7 @@ exports.getEventsByUserId = async (req, res, next) => {
     try {
         if(!isObjectIdValid(req.query.id)) throw new ServerError("id is invalid", 400);
 
-        const events = await Event.find({host: req.query.id})
+        const events = await Event.find({hostId: req.query.id})
         res.send(events);
 
     } catch (error) {
@@ -46,11 +46,11 @@ exports.createEvent = async (req, res, next) => {
     try {
         console.log(typeof req.body.capacity)
         if (!req.body.name || typeof req.body.name !== "string") throw new ServerError("name is invalid", 400);
-        if (!req.body.date || !(req.body.date instanceof Date)) throw new ServerError("date is invalid", 400);
+        if (!req.body.date || typeof req.body.date !== "string") throw new ServerError("date is invalid", 400);
         if (!req.body.location || typeof req.body.location !== "string") throw new ServerError("locaton is invalid", 400);
         if (!req.body.capacity || isNaN(req.body.capacity)) throw new ServerError("capacty is invalid", 400);
         if (!req.body.requests || typeof req.body.requests !== "object") throw new ServerError("requests are invalid", 400);
-        if (!req.body.hostId || typeof req.body.hostId !== "string") throw new ServerError("host is invalid", 400);
+        if (!req.body.hostId || typeof req.body.hostId !== "string") throw new ServerError("hostId is invalid", 400);
 
         //Check if host exists
         const client = Client.findOne({_id: req.body.hostId});
