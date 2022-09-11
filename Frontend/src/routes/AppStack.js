@@ -1,23 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
-import UserIn from '../components/UserIn';
-import UserOrdering from '../components/UserOrdering';
-import ContractorDashboard from '../components/ContractorDashboard';
-import UserDashboard from '../components/UserDashboard';
-import UserHeader from '../components/UserHeader';
-import ContractorDashCardOpen from '../components/ContractorDashCardOpen';
+import UserOrdering from "../components/UserOrdering";
+import UserHome from "../components/UserHome";
+import UserDashboard from "../components/UserDashboard";
+import Account from "./Account";
 export default function AppStack(){
     return (
-        
-        <Routes>
-        
-        <Route path="/" element={<UserIn></UserIn>}></Route>
-          <Route path="/UserOrdering" element={<UserOrdering></UserOrdering>} />
-          <Route path="/userdashboard" element={<UserDashboard></UserDashboard>}></Route>
-          <Route path='/Contractordash'  element = {<ContractorDashboard></ContractorDashboard>}></Route>
-          <Route path="/contractdash/item/:id" element={<ContractorDashCardOpen></ContractorDashCardOpen>}></Route>
-          
-          </Routes>
+       <>
+               <Routes>
+          {/* <Route path="/" element={<Home></Home>} /> */}
+          <Route path="/userHome" element={<UserHome></UserHome>}></Route>
+          <Route path="/account" element={<Account></Account>}></Route>
+          <Route path="/userOrder" element={<UserOrdering></UserOrdering>} />
+          <Route path="/userDashboard" element={<UserDashboard></UserDashboard>}></Route>
+        </Routes>
+</>
+
+
     )
 }
 
-//

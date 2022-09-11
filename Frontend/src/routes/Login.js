@@ -1,17 +1,18 @@
 import "../styles/Login.css"
 import "../styles/index.css"
-import app from "../components/Firebase";
-import {  getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../components/Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-
-const auth = getAuth(app);
-
+import {useNavigate} from "react-router-dom"; 
 export  default function Login() { 
+    const navigate = useNavigate();
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const signIn = () => { 
         signInWithEmailAndPassword(auth, email, password)
-        .then(auth => console.log(auth))
+        .then(auth => navigate("/userHome", {replace:true}))
         .catch(err => console.error(err))
     };
     return (

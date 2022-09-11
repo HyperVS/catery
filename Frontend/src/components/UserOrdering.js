@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import NavbarLogged from './NavbarLogged'
+import Footer from './Footer'
 const UserOrdering = () => {
    
     const [partyType, setPartyType] = useState("")
@@ -27,6 +28,8 @@ const UserOrdering = () => {
 
 
   return (
+    <>
+    <NavbarLogged/>
     <div className='userpage'>
         <div className="order-form">
             <h1>Create your specialized event below: </h1>
@@ -85,19 +88,25 @@ const UserOrdering = () => {
                 <br></br>
                 <input type="text" placeholder='other' value={otherPartySpecs} onChange={(e)=> setOtherParySpecs(e.target.value)} ></input>
                 <br></br>
-                <textarea placeholder='Enter any other requests to be done' ></textarea>
+                {/* <textarea placeholder='Enter any other requests to be done' ></textarea> */}
                 <br></br>
+
                 <input type="submit"></input>
 
                 <li className='title'>Date, Location and Phone number:  </li>
+
 
                 <input type="date"></input>
                 <input type="tel" placeholder='phone-number'></input>
                 <br></br>
                 <input type="text"  placeholder='Enter address'></input>
+
                 
 
                 
+
+                <input type="submit"></input>
+
 
 
 
@@ -113,6 +122,8 @@ const UserOrdering = () => {
         
 
     </div>
+    <Footer/>
+    </>
   )
 }
 

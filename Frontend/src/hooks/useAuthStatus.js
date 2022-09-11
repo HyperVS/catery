@@ -1,8 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
-import app from "../components/Firebase";
-import {  getAuth, onAuthStateChanged } from "firebase/auth";
-
-const auth = getAuth(app);
+import { useState, useEffect } from "react";
+import { auth } from "../components/Firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 /**
  * The useAuthStatus hook subscribes and listens for changes to the authentication
