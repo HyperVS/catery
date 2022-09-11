@@ -65,6 +65,8 @@ exports.createEvent = async (req, res, next) => {
             hostId: req.body.hostId
         });
         const createdEvent = await newEvent.save();
+
+        await Client.findOneAndUpdate({ _id: req.body.id }, { $push: { orders: newEvent._id } });
         res.status(201).send(createdEvent);
     } catch (error) {
         next(error);
