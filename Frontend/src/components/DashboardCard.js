@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, speakers, PartySpecs, date, Address}) => {
+
+const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, speakers, microphone, DJ, DiscoBall, PartySpecs, ExtraRequests, date, Address, number, price}) => {
+
 
 const [status, setStatus] = useState(false)
 
@@ -12,9 +14,10 @@ const flipper = () =>{
   return (
     <div className='card'> 
     <div className='flex-row'>
-        <h1>{PartyType}</h1>
-        <div>Capacity: {Capacity}</div>
-        <div className='card-extra'>{date} <button onClick={()=>flipper()} class="btn more-info-btn">more info</button></div>
+        <h1 className='event-type'>{PartyType}</h1>
+        <div>Capacity: {Capacity} 
+        </div>
+        <div className='card-extra'>{date} <button onClick={()=>flipper()} className="btn more-info-btn">more info</button></div>
     </div>
 
     <div>
@@ -70,8 +73,9 @@ const flipper = () =>{
             <div className='grid-double'>Additional Party specs: {PartySpecs}</div>
         </div>
 
-        <li className='title'>Location: </li>
-        <div className='address'> {Address}</div>
+        <li className='title'>Location and Phone number: </li>
+        <div className='address'> Address: {Address}</div>
+        <div className='address'> Number: {number}</div>
 
 
 

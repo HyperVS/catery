@@ -90,10 +90,23 @@ const UserOrdering = () => {
                 <br></br>
                 {/* <textarea placeholder='Enter any other requests to be done' ></textarea> */}
                 <br></br>
-                <li className='title'>Date and Location:  </li>
-                <input type="date"></input>
-                <input type="text"  placeholder='Enter address'></input>
+
                 <input type="submit"></input>
+
+                <li className='title'>Date, Location and Phone number:  </li>
+
+
+                <input type="date"></input>
+                <input type="tel" placeholder='phone-number'></input>
+                <br></br>
+                <input type="text"  placeholder='Enter address'></input>
+
+                
+
+                
+
+                <input type="submit"></input>
+
 
 
 
