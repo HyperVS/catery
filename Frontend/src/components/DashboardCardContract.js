@@ -54,20 +54,7 @@ const DashboardCardContract = ({PartyType, Capacity, FoodType, OtherFoodspec, Dr
                 <label>Speakers</label>
                 </div>
     
-                <div>
-                <input type="checkbox" checked={microphone}></input>
-                <label>Microphone</label>
-                </div>
-    
-                <div>
-                <input type="checkbox" checked={DJ}></input>
-                <label>DJ</label>
-                </div>
-    
-                <div>
-                <input type="checkbox" checked={DiscoBall}></input>
-                <label>Disco Ball</label>
-                </div>
+               
     
                 <div className='grid-double'>Additional Party specs: {PartySpecs}</div>
             </div>

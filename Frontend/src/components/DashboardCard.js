@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, Speakers,  PartySpecs,  date, Address }) => {
 
+const fdate = new Date(date);
 
 const [status, setStatus] = useState(false)
 
@@ -10,14 +11,13 @@ const flipper = () =>{
     
     setStatus(!status)
 }
-
   return (
     <div className='card'> 
     <div className='flex-row'>
         <h1 className='event-type'>{PartyType}</h1>
         <div>Capacity: {Capacity} 
         </div>
-        <div className='card-extra'>{date} <button onClick={()=>flipper()} className="btn more-info-btn">more info</button></div>
+        <div className='card-extra'>{`${fdate.toDateString()} `} <button onClick={()=>flipper()} className="btn more-info-btn">more info</button></div>
     </div>
 
     <div>
