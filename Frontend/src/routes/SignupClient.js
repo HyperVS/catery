@@ -1,8 +1,12 @@
 import "../styles/Login.css";
 import { useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
+import {auth} from "../components/Firebase"
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupClient() {
+    const navigate = useNavigate();
     const [displayName, setDisplayName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState(""); 
@@ -11,6 +15,8 @@ export default function SignupClient() {
         await axios.post("http://localhost:8080/v1/clients/create", {
             displayName, phone, email, password
         })
+        await signInWithEmailAndPassword(auth, email, password);
+        navigate("/", {replace: true});
     }
     return (
         <div className="login">
