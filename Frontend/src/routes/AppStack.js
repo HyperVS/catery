@@ -6,15 +6,26 @@ import Account from "./Account";
 import ContractorDashboard from '../components/ContractorDashboard';
 import ContractorDashCardOpen from '../components/ContractorDashCardOpen';
 import { useCurrentUser } from '../hooks/useCurrentUser';
+
+
+
 export default function AppStack(){
     const user = useCurrentUser(); 
-
+    function xxx() { 
+        if(user?.role == "Client") { 
+            return <UserHome/>
+        } else if(user?.role == "Contractor") { 
+            return <ContractorDashboard />
+        } else { 
+            setTimeout(() => xxx(),0)
+        }
+    }
     return (
        <>
 
         <Routes>
             
-          <Route path="/" element={user?.role == "Client" ? <UserHome></UserHome> : <ContractorDashboard></ContractorDashboard>}></Route>
+          <Route path="/" element={xxx()}></Route>
           <Route path="/account" element={<Account></Account>}></Route>
           <Route path="/userOrder" element={<UserOrdering></UserOrdering>} />
           <Route path="/userDashboard" element={<UserDashboard></UserDashboard>}></Route>
