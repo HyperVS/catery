@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import NavbarLogged from './NavbarLogged'
+import Footer from './Footer'
 const UserOrdering = () => {
    
     const [partyType, setPartyType] = useState("")
@@ -27,6 +28,8 @@ const UserOrdering = () => {
 
 
   return (
+    <>
+    <NavbarLogged/>
     <div className='userpage'>
         <div className="order-form">
             <h1>Create your specialized event below: </h1>
@@ -106,6 +109,8 @@ const UserOrdering = () => {
         
 
     </div>
+    <Footer/>
+    </>
   )
 }
 

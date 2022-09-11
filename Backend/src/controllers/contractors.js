@@ -1,10 +1,6 @@
 const Contractor = require("../db/models/Contractor");
 const User = require("../db/models/User");
 const admin = require("../../config/firebase/admin");
-<<<<<<< HEAD
-
-=======
->>>>>>> d5afc393d5a5a6daf8d6b8ca6cd4988a66f82e9a
 const ServerError = require("../helpers/ServerError");
 const { isUserObjectIdValid } = require("../helpers/isObjectIdValid");
 

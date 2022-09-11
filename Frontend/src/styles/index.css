@@ -312,8 +312,9 @@ label{
 }
 
 .backofdash{
-  background-image: url("https://cdn0.weddingwire.com/vendor/202804/3_2/960/jpg/3_51_408202-165484224753204.jpeg");
+  background-image: url("https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg?cs=srgb&dl=pexels-pixabay-50675.jpg&fm=jpg");
   height: 100vh;
+  background-repeat: no-repeat;
 }
 
 .btn{
