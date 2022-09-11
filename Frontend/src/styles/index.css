@@ -385,5 +385,6 @@ label{
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    margin: 0 auto;
 }
 
