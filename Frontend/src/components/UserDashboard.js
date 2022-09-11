@@ -1,12 +1,26 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import DashboardCard from './DashboardCard'
-// import { useCurrentUser } from '../hooks/useCurrentUser';
-import {auth} from "../components/Firebase";
+import { useCurrentUser } from '../hooks/useCurrentUser';
+import axios from "axios";
 import NavbarLogged from "./NavbarLogged";
-let arr = [{id: 0, PartyType: "Strip club", Capacity: 50, FoodType: 'haram', OtherFoodspec: "Please inlude haram pork", Drinks: "Hard Drinks", OtherDrinkDetails: "please include all haram drinks", ChairAndTables: true, Utensils: true, speakers: true, microphone: true, DJ: true, DiscoBall: true, PartySpecs: "Extra Haram and neswan and banat and neyaka w neek el denya", ExtraRequests: "Get all the mohammed elmins", date: "13/13/2013", Address:"Satan's home" }]
+import {auth} from "../components/Firebase";
 
 const UserDashboard = () => {
-  // const user = useCurrentUser(); 
+  const [arr, setArr] = useState([]);
+  // const user = useCurrentUser();
+  useState( () => {
+    const  getEvents = async ()=> {
+        try{ 
+            const result = await axios.get(`http://localhost:8080/v1/events/getByUserId?id=${auth.currentUser.uid}`);
+            setArr(result.data);
+        }catch(err) { 
+          console.error(err);
+        }
+    } 
+    getEvents(); 
+  }, [])
+
+  // const arr =  || [];
   return (
 
     <div className='backofdash'>
@@ -14,7 +28,7 @@ const UserDashboard = () => {
 
         {arr.map(event =>(
             
-            <DashboardCard key={event.id} PartyType={event.PartyType} Capacity={event.Capacity} FoodType={event.FoodType} OtherFoodspec={event.OtherFoodspec} Drinks={event.Drinks} OtherDrinkDetails={event.OtherDrinkDetails} ChairAndTables={event.ChairAndTables} Utensils={event.Utensils} speakers={event.speakers} microphone={event.microphone} DJ={event.DJ} DiscoBall={event.DiscoBall} PartySpecs={event.PartySpecs} ExtraRequests={event.ExtraRequests} date={event.date} Address={event.Address}> number={event.number}  </DashboardCard>
+            <DashboardCard key={event._id} PartyType={event.name} Capacity={event.capacity} FoodType={event.requests.food} OtherFoodspec={event.requests.foodSpec} Drinks={event.requests.drinks} OtherDrinkDetails={event.requests.drinkSpec} ChairAndTables={event.requests.party.seating} Utensils={event.requests.party.utensils} speakers={event.requests.party.speakers} PartySpecs={event.requests.party.other} date={event.date} Address={event.location}> </DashboardCard>
         ))} 
     </div>
   )

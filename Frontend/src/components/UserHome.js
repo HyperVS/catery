@@ -10,22 +10,9 @@ import axios from "axios";
 const UserHome = () => {
   
      
-    //  const user = useCurrentUser();
-
-     const getEvents = async () => { 
-        
-      try {
-          const result = await axios.get(`http://localhost:8080/v1/events/getByUserId?id=${auth.currentUser.uid}`)
-          console.log(result.data)
-      } 
-      
-      catch (error) {
-          console.error(error);
-      }
-  }
-  useEffect(() => { 
-    getEvents();
-  }, [])
+     const user = useCurrentUser();
+    
+     
   return (
     <>
       <NavbarLogged/>

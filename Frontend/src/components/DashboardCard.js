@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, Speakers,  PartySpecs,  date, Address, number, price}) => {
+const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, Speakers,  PartySpecs,  date, Address }) => {
 
 
 const [status, setStatus] = useState(false)
@@ -75,7 +75,6 @@ const flipper = () =>{
 
         <li className='title'>Location and Phone number: </li>
         <div className='address'> Address: {Address}</div>
-        <div className='address'> Number: {number}</div>
 
 
 
