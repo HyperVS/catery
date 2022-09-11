@@ -2,7 +2,7 @@ const Event = require("../db/models/Event");
 const Client = require("../db/models/Client");
 
 const ServerError = require("../helpers/ServerError");
-const { isObjectIdValid } = require("../helpers/isObjectIdValid");
+const { isUserObjectIdValid } = require("../helpers/isObjectIdValid");
 
 //Get all events
 exports.getEvents = async (_, res, next) => {
@@ -31,7 +31,7 @@ exports.getEventById = async (req, res, next) => {
 //Get all events by user id (host)
 exports.getEventsByUserId = async (req, res, next) => {
     try {
-        if(!isObjectIdValid(req.query.id)) throw new ServerError("id is invalid", 400);
+        if(!isUserObjectIdValid(req.query.id)) throw new ServerError("id is invalid", 400);
 
         const events = await Event.find({hostId: req.query.id})
         res.send(events);
