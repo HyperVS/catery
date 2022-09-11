@@ -193,52 +193,7 @@ label{
 }
 
 
-.UserIn{
-  display: flex;
 
-}
-
-.UserIn-left{
-width: 50%;
-text-align: center;
-height: 83vh;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-background-image: url("https://i0.wp.com/paperandlandscapes.com/wp-content/uploads/2021/02/Vertical-Weekly-Spread-Easy-and-quick-decorated-with-washi-and-stickers-Paper-and-Landscapes-sq.jpg?resize=720%2C720");
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-
-
-}
-.UserIn-left:hover{
-  width: 70%;
-}
-
-.UserIn-right{
-  width: 50%;
-  text-align: center;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-image: url("https://media.istockphoto.com/photos/pushpin-on-calendar-with-busy-day-picture-id656645460?k=20&m=656645460&s=612x612&w=0&h=-aeIl881VHHkZ2F8rzNWLZf3OC6EdCqUVhhg47w81Us=");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  .UserIn-right:hover{
-    width: 70%;
-  }
-
-  .UserInBtn{
-    max-height: 10vh;
-    margin: 50px;
-    padding:  10px;
-    width: 40%;
-    
-  }
 
   .food-dropdown{
     margin-right: 10px;
@@ -380,6 +335,8 @@ background-size: cover;
 .btn-black { 
   border: solid 2px#1e272e;
   padding: 10px 20px;
+  background:rgb(0, 0, 0);
+  color: #fff;
   /* margin:10px; */
   /* font-weight: bold; */
 }
