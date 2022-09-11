@@ -34,9 +34,12 @@ const UserOrdering = () => {
         <div className="order-form">
             <h1>Create your specialized event below: </h1>
             <form className='' >
-                <li className='title'>Event Details</li>             
-                <input type="text" placeholder='Party type' value={partyType} onChange={(e)=> setPartyType(e.target.value)} required></input>
-                <input type="number" placeholder='Capacity' value={capacity} onChange={(e)=> setCapacity(e.target.value)} required></input>
+                <li className='title'>Event Details</li>   
+                <span className='mr-2'>Party title:</span>
+                <input type="text" placeholder='Party type' value={partyType} className="input input-party" onChange={(e)=> setPartyType(e.target.value)} required></input>
+                <br/>
+                <span className='mr-2'>Number of people:</span>
+                <input type="number" placeholder='Capacity' className='input input-capacity' value={capacity} onChange={(e)=> setCapacity(e.target.value)} required></input>
 
                 <li className='title'>Food & Drink Details: </li>
                 <select className='food-dropdown' 
@@ -48,7 +51,7 @@ const UserOrdering = () => {
                         </option>
                          ))}
                 </select>
-                <input type="text" placeholder="Other Specific Details" value={specificFood}  onChange={(e)=> setSpecificFood(e.target.value)} ></input>
+                <input type="text" className='input' placeholder="Other Specific Details" value={specificFood}  onChange={(e)=> setSpecificFood(e.target.value)} ></input>
                 <br></br>
                 <select className="drink-dropdown"
                     value={drinkType} 
@@ -59,10 +62,10 @@ const UserOrdering = () => {
                         </option>
                          ))}
                 </select>
-                <input type="text" placeholder="Other drink prefrences" value={specificDrink} onChange={(e)=> setSpecificDrink(e.target.value)} ></input>
+                <input type="text" className='input' placeholder="Other drink prefrences" value={specificDrink} onChange={(e)=> setSpecificDrink(e.target.value)} ></input>
                 <br></br>
 
-                <li className='title'>Catering specifics:  </li>
+                <li className='title'>Additional specifics:  </li>
                 <input type="checkbox" id="Chairs&Tables" name="Chairs&Tables" checked={seating} onChange={(e)=> setSeating(e.target.checked)} ></input>
                 <label>Chair and Tables</label>
                 <br></br>
@@ -73,7 +76,6 @@ const UserOrdering = () => {
 
 
 
-                <li className='title'>Additional Party specifics:  </li>
                 <input type="checkbox" id="speaker" name="speakers" value="speakers" checked={speakers} onChange={(e)=> setSpeakers(e.target.checked)} ></input>
                 <label>Speakers</label>
                 <br></br>
@@ -86,26 +88,24 @@ const UserOrdering = () => {
                 <input type="checkbox" id="Disco Ball" name="Disco Ball" value="Disco ball" checked={discoBall} onChange={(e)=> setDiscoBall(e.target.checked)}></input>
                 <label>Disco Ball</label>
                 <br></br>
-                <input type="text" placeholder='other' value={otherPartySpecs} onChange={(e)=> setOtherParySpecs(e.target.value)} ></input>
+                <input type="text" className="input" placeholder='other' value={otherPartySpecs} onChange={(e)=> setOtherParySpecs(e.target.value)} ></input>
                 <br></br>
                 {/* <textarea placeholder='Enter any other requests to be done' ></textarea> */}
                 <br></br>
 
-                <input type="submit"></input>
 
                 <li className='title'>Date, Location and Phone number:  </li>
 
-
-                <input type="date"></input>
-                <input type="tel" placeholder='phone-number'></input>
+                <input type="tel" placeholder='phone-number' className="input mr-2"></input>
+                <input type="date" className="input "></input>
                 <br></br>
-                <input type="text"  placeholder='Enter address'></input>
+                <input type="text" className="input mr-2"  placeholder='Enter address'></input>
 
                 
 
                 
 
-                <input type="submit"></input>
+                <input type="submit" className='input '></input>
 
 
 
