@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import UserOrdering from "./components/UserOrdering";
 import UserIn from "./components/UserIn";
 import UserDashboard from "./components/UserDashboard";
+import ContractorDashboard from './components/ContractorDashboard';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/userin" element={<UserIn></UserIn>}></Route>
           <Route path="/UserOrdering" element={<UserOrdering></UserOrdering>} />
           <Route path="/userdashboard" element={<UserDashboard></UserDashboard>}></Route>
+          <Route path='/Contractor'  element = {<ContractorDashboard></ContractorDashboard>}></Route>
 
 
         </Routes>

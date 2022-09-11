@@ -89,10 +89,15 @@ const UserOrdering = () => {
                 <br></br>
                 <input type="submit"></input>
 
-                <li className='title'>Date and Location:  </li>
+                <li className='title'>Date, Location and Phone number:  </li>
 
                 <input type="date"></input>
+                <input type="tel" placeholder='phone-number'></input>
+                <br></br>
                 <input type="text"  placeholder='Enter address'></input>
+                
+
+                
 
 
 
