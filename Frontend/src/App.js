@@ -1,5 +1,4 @@
 
-import ReactDOM from "react-dom/client";
 
 import './styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,10 +9,10 @@ import UserOrdering from "./components/UserOrdering";
 import UserIn from "./components/UserIn";
 import UserDashboard from "./components/UserDashboard";
 
-function App() {
+export default function App() {
   return (
-    <Router>
-     <Navbar></Navbar>
+<>
+<Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home></Home>} />
           <Route path="/userin" element={<UserIn></UserIn>}></Route>
@@ -23,8 +22,7 @@ function App() {
 
         </Routes>
         <Footer></Footer>
-    </Router>
-
+</>
   );
 }
 
