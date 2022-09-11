@@ -1,29 +1,28 @@
 import "../styles/Login.css";
-import {auth} from "../components/Firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import axios from "axios"; 
 
-
 export default function SignupClient() {
-    const [name, setName] = useState("");
-    const [number, setNumber] = useState("");
+    const [displayName, setDisplayName] = useState("");
+    const [phone, setPhone] = useState("");
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
 
-    const signUp = () => {  
-        axios.post("http://localhost:8080/v1/clients/create", {email, password})
+    const signUp = async () => {  
+        await axios.post("http://localhost:8080/v1/clients/create", {
+            displayName, phone, email, password
+        })
     }
     return (
         <div className="login">
             <div className="container">
                 <h1 className="login-title"> Catery </h1>
                 <h3> Client Sign Up </h3>
-                <input onChange={setName} type="text" placeholder="Full Name"/>
-                <input onChange={setNumber} type="text" placeholder="Phone Number"/>
-                <input onChange={setEmail} type="text" placeholder="Email"/>
-                <input onChange={setPassword} type="password" placeholder="****"/>
-                <button onClick={signUp}>Login</button>
+                <input onChange={(e) => setDisplayName(e.target.value)} type="text" placeholder="Full Name"/>
+                <input onChange={(e) => setPhone(e.target.value)} type="text" placeholder="Phone Number"/>
+                <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email"/>
+                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"/>
+                <button onClick={signUp}>Sign up</button>
             </div>
         </div>
     );

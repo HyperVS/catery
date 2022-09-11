@@ -7,7 +7,6 @@ const contractorSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
     },
     clients: {
         type: [{

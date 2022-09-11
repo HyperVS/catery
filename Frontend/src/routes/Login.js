@@ -2,9 +2,9 @@ import "../styles/Login.css"
 import "../styles/index.css"
 import app from "../components/Firebase";
 import {  getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {useState} from "react";
+import { useState } from "react";
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 export  default function Login() { 
     const [email, setEmail] = useState("");

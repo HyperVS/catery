@@ -1,19 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
-import Login from './Login';
-import Signup from "./Signup";
-import SignupContractor from './SignupContractor';
-import SignupClient from './SignupClient';
-import App from "../App";
+import { BrowserRouter as Router } from 'react-router-dom';
+import AuthStack from './AuthStack';
+import AppStack from './AppStack';
+import { useAuthStatus } from '../hooks/useAuthStatus';
+
 export default function Root() {
+    const { isAuth, authStatusLoaded } = useAuthStatus();
+    if(!authStatusLoaded) return;
+
     return(
-        <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<App/>}></Route>
-            <Route path="/create-account" element={<Signup/>}></Route>
-            <Route path="/login" element={<Login/>}></Route>
-            <Route path="/signup-client" element={<SignupClient/>}></Route>
-            <Route path="/signup-contractor" element={<SignupContractor/>}></Route>
-        </Routes>
-        </BrowserRouter>
+        <Router>
+            {isAuth ? <AppStack/> : <AuthStack/>}
+        </Router>
     );
- }
+}
