@@ -85,14 +85,12 @@ const UserOrdering = () => {
                 <br></br>
                 <input type="text" placeholder='other' value={otherPartySpecs} onChange={(e)=> setOtherParySpecs(e.target.value)} ></input>
                 <br></br>
-                <textarea placeholder='Enter any other requests to be done' ></textarea>
+                {/* <textarea placeholder='Enter any other requests to be done' ></textarea> */}
                 <br></br>
-                <input type="submit"></input>
-
                 <li className='title'>Date and Location:  </li>
-
                 <input type="date"></input>
                 <input type="text"  placeholder='Enter address'></input>
+                <input type="submit"></input>
 
 
 
