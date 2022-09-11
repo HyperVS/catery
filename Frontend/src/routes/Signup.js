@@ -8,7 +8,7 @@ export default function Signup() {
         <>
         <Navbar />
             <h1 className="signup-title">Sign up</h1>
-            <div class="signup">
+            <div className="signup">
             <div className="signup-user"> 
                 <h3>For Users</h3>
                 <p>We are the leading software to connect you to the best<br/> eventplanners whereever you are. </p>
