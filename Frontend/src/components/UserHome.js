@@ -10,7 +10,6 @@ const UserHome = () => {
   
      
      const user = useCurrentUser();
-     console.log(user);
   return (
     <>
       <NavbarLogged/>

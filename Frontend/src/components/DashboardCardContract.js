@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
-import { FormControl } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const DashboardCardContract = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, speakers, microphone, DJ, DiscoBall, PartySpecs, ExtraRequests, date, Address, number, price}) => {
     const [status, setStatus] = useState(false)
 
-    const flipper = () =>{
-        
-        
-    }
+ 
     
       return (
         <div className='card-contractor'> 

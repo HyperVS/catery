@@ -3,7 +3,6 @@ import "../styles/NavbarLogged.css";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 export default function NavbarLogged() { 
     const user = useCurrentUser();
-    console.log(user);
     return (
         <nav className="navbar-logged">
         <div>
