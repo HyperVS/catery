@@ -5,7 +5,8 @@ const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, Ot
 
 const fdate = new Date(date);
 
-const [status, setStatus] = useState(false)
+const [status, setStatus] = useState(false);
+
 const user = useCurrentUser();
 
 const flipper = () =>{
@@ -13,17 +14,18 @@ const flipper = () =>{
     setStatus(!status)
 }
   return (
+    <>
     <div className='card'> 
+
     <div className='flex-row'>
         <h1 className='event-type'>{PartyType}</h1>
         <div>Capacity: {Capacity} 
         </div>
         <div className='card-extra'>{`${fdate.toDateString()} `} <button onClick={()=>flipper()} className="btn more-info-btn mr-2">more info</button>
         {user?.role == "Contractor" ? <button onClick={()=>(1)} className="btn btn-success mr-2">Accept</button> : null}
-        {user?.role == "Contractor" ? <button onClick={()=>(2)} className="btn btn-logout">Reject</button> : null}
+        {user?.role == "Contractor" ? <button onClick={2} className="btn btn-logout">Reject</button> : null}
         </div>
-    </div>
-
+    </div> 
     <div>
     {status==true &&
     <div className='title'>
@@ -89,7 +91,7 @@ const flipper = () =>{
     </div>
 
 
-    </div>
+    </div> </>
     
   )
 }

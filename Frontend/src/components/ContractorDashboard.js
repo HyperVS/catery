@@ -18,14 +18,14 @@ const ContractorDashboard = () => {
     } 
     getEvents(); 
   }, [])
+    console.log(arr)
     return (
         <>
         <NavbarLogged></NavbarLogged>
         <div className='backofdash-contractor'>
-            
         {arr.map(event =>(
             
-            <DashboardCard key={event._id} PartyType={event.name} Capacity={event.capacity} FoodType={event.requests.food} OtherFoodspec={event.requests.foodSpec} Drinks={event.requests.drinks} OtherDrinkDetails={event.requests.drinkSpec} ChairAndTables={event.requests.party.seating} Utensils={event.requests.party.utensils} speakers={event.requests.party.speakers} PartySpecs={event.requests.party.other} date={event.date} Address={event.location}> </DashboardCard>
+            <DashboardCard key={event._id} PartyType={event.name} Capacity={event.capacity} FoodType={event.requests.food} OtherFoodspec={event.requests.foodSpec} Drinks={event.requests.drinks} OtherDrinkDetails={event.requests.drinkSpec} ChairAndTables={event.requests.party.seating} Utensils={event.requests.party.utensils} speakers={event.requests.party.speakers} PartySpecs={event.requests.party.other} date={event.date} Address={event.location} > </DashboardCard>
         ))} 
             <Footer></Footer>
         </div>

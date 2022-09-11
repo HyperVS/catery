@@ -3,8 +3,9 @@ import NavbarLogged from './NavbarLogged'
 import Footer from './Footer'
 import axios from 'axios'
 import {auth} from "../components/Firebase";
+import { useNavigate } from 'react-router-dom';
 const UserOrdering = () => {
-   
+    const navigate = useNavigate();
     const [partyType, setPartyType] = useState("")
     const [capacity, setCapacity] = useState(0)
 
@@ -42,8 +43,8 @@ const UserOrdering = () => {
                 },
 
             }})
+        navigate("/userdashboard", {replace:true});
         } 
-        
         catch (error) {
             console.error(error);
         }

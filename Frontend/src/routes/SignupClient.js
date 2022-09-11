@@ -7,7 +7,6 @@ export default function SignupClient() {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState(""); 
-
     const signUp = async () => {  
         await axios.post("http://localhost:8080/v1/clients/create", {
             displayName, phone, email, password
