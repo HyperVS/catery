@@ -5,7 +5,7 @@ export default function NavbarLogged() {
         <nav className="navbar-logged">
         <div>
         <h2 className='navbar-logged__logo'>
-        <Link style={{textDecoration: 'none'}}  to="/userHome">
+        <Link style={{textDecoration: 'none'}}  to="/">
            Catery
           </Link>
         </h2>
