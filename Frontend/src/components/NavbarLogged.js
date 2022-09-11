@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom"
 import "../styles/NavbarLogged.css";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 export default function NavbarLogged() { 
+    const user = useCurrentUser();
+    console.log(user);
     return (
         <nav className="navbar-logged">
         <div>
@@ -13,7 +16,7 @@ export default function NavbarLogged() {
         </div>
         <div > 
             <Link to="/account" className="account-link">
-                Hello, User!
+                Hello, {user?.displayName}!
             </Link> 
        </div>    
 
