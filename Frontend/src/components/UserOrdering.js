@@ -1,29 +1,53 @@
 import React, { useState } from 'react'
 import NavbarLogged from './NavbarLogged'
 import Footer from './Footer'
+import axios from 'axios'
+import {auth} from "../components/Firebase";
 const UserOrdering = () => {
    
     const [partyType, setPartyType] = useState("")
     const [capacity, setCapacity] = useState(0)
 
     const foodOptions = ["Vegan", "Vegetarian", "Halal", "Kosher", "Keto", "Dairy-Free", "No food"]
-    const [foodType, setFoodType] = useState(foodOptions[5])
+    const [foodType, setFoodType] = useState(foodOptions[6])
     const [specificFood, setSpecificFood] = useState("")
 
     const drinkOptions = ["Hard Drinks", "Soft Drinks" , "No Drinks"]
-    const [drinkType, setDrinkType] = useState(foodOptions[2])
+    const [drinkType, setDrinkType] = useState(drinkOptions[2])
     const [specificDrink, setSpecificDrink] = useState("")
 
 
     const [seating, setSeating] = useState(false)
     const [utensils, setUtensils] = useState(false)
     const [speakers, setSpeakers] = useState(false)
-    const [microphone, setMicrophone] = useState(false)
-    const [dj, setDj] = useState(false)
-    const [discoBall, setDiscoBall] = useState(false)
+    // PARTY OTHER
     const [otherPartySpecs, setOtherParySpecs] = useState('')
+    const [date, setDate] = useState("");
+    const [address, setAddress] = useState('');
 
+    const createEvent = async () => { 
+        
+        try {
+            const result = await axios.post(`http://localhost:8080/v1/events/create/`, {name:partyType, date, location:address, capacity,hostId: auth.currentUser.uid , requests: { 
+                food: foodType, 
+                foodSpec: specificFood,
+                drinks: drinkType, 
+                drinkSpec: specificDrink,
+                party: {
+                    seating, 
+                    speakers,
+                    utensils,
+                    other: otherPartySpecs 
+                    
+                },
 
+            }})
+        } 
+        
+        catch (error) {
+            console.error(error);
+        }
+    }
     
 
 
@@ -33,7 +57,7 @@ const UserOrdering = () => {
     <div className='userpage'>
         <div className="order-form">
             <h1>Create your specialized event below: </h1>
-            <form className='' >
+            <form className='' onSubmit={e => e.preventDefault()}>
                 <li className='title'>Event Details</li>   
                 <span className='mr-2'>Party title:</span>
                 <input type="text" placeholder='Party type' value={partyType} className="input input-party" onChange={(e)=> setPartyType(e.target.value)} required></input>
@@ -56,9 +80,9 @@ const UserOrdering = () => {
                 <select className="drink-dropdown"
                     value={drinkType} 
                     onChange={e => setDrinkType(e.target.value)}>
-                        {drinkOptions.map((value) => (
-                        <option value={value} key={value}>
-                            {value}
+                        {drinkOptions.map((val) => (
+                        <option value={val} key={val}>
+                            {val}
                         </option>
                          ))}
                 </select>
@@ -76,17 +100,8 @@ const UserOrdering = () => {
 
 
 
-                <input type="checkbox" id="speaker" name="speakers" value="speakers" checked={speakers} onChange={(e)=> setSpeakers(e.target.checked)} ></input>
+                <input type="checkbox" id="Speaker" name="Speakers" value="speakers" checked={speakers} onChange={(e)=> setSpeakers(e.target.checked)} ></input>
                 <label>Speakers</label>
-                <br></br>
-                <input type="checkbox" id="microphone" name="microphone" value="microphone" checked={microphone} onChange={(e)=> setMicrophone(e.target.checked)} ></input>
-                <label>microphone</label>
-                <br></br>
-                <input type="checkbox" id="DJ" name="DJ" value="DJ" checked={dj} onChange={(e)=> setDj(e.target.checked)} ></input>
-                <label>DJ</label>
-                <br></br>
-                <input type="checkbox" id="Disco Ball" name="Disco Ball" value="Disco ball" checked={discoBall} onChange={(e)=> setDiscoBall(e.target.checked)}></input>
-                <label>Disco Ball</label>
                 <br></br>
                 <input type="text" className="input" placeholder='other' value={otherPartySpecs} onChange={(e)=> setOtherParySpecs(e.target.value)} ></input>
                 <br></br>
@@ -94,18 +109,16 @@ const UserOrdering = () => {
                 <br></br>
 
 
-                <li className='title'>Date, Location and Phone number:  </li>
+                <li className='title'>Date & Location  </li>
 
-                <input type="tel" placeholder='phone-number' className="input mr-2"></input>
-                <input type="date" className="input "></input>
+                {/* <input type="tel" placeholder='phone-number' className="input mr-2"></input> */}
+                <input type="date" className="input "  onChange={e => setDate(e.target.value)}></input>
                 <br></br>
-                <input type="text" className="input mr-2"  placeholder='Enter address'></input>
-
-                
-
-                
-
-                <input type="submit" className='input '></input>
+                <input type="text" className="input mr-2" value={address} onChange={e=>setAddress(e.target.value)} placeholder='Enter address'></input>
+                <input type="submit" className='input ' onClick={()=> {
+                    console.log(typeof auth.currentUser.uid);
+                    createEvent();
+                }}  />
 
 
 

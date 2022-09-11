@@ -20,14 +20,14 @@ const eventSchema = new mongoose.Schema({
     requests: {
         food: {
             type: String,
-            enum: ["Vegan", "Kosher", "Dairy-Free", "Vegetarian", "Halal", "Keto", "No food", "Other"]
+            // enum: ["Vegan", "Kosher", "Dairy-Free", "Vegetarian", "Halal", "Keto", "No food", "Other"]
         },
         foodSpec: {
             type: String
         },
         drinks: {
             type: String,
-            enum: ["Hard Drinks", "Soft Drinks", "No Drinks"]
+            // enum: ["Hard Drinks", "Soft Drinks", "No Drinks"]
         },
         drinkSpec: {
             type: String
@@ -36,13 +36,10 @@ const eventSchema = new mongoose.Schema({
             speakers: {
                 type: Boolean
             },
-            microphone: {
+            utensils: { 
                 type: Boolean
-            },
-            dj: {
-                type: Boolean
-            },
-            discoBall: {
+            }, 
+            seating: { 
                 type: Boolean
             },
             other: {

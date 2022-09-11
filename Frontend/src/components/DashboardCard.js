@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, speakers, microphone, DJ, DiscoBall, PartySpecs, ExtraRequests, date, Address, number, price}) => {
+const DashboardCard = ({PartyType, Capacity, FoodType, OtherFoodspec, Drinks, OtherDrinkDetails, ChairAndTables, Utensils, Speakers,  PartySpecs,  date, Address, number, price}) => {
 
 
 const [status, setStatus] = useState(false)
@@ -51,7 +51,7 @@ const flipper = () =>{
         <li className='title'> Additional party specifics: </li>
         <div className='grid'>
              <div >
-            <input type="checkbox" checked={speakers}></input>
+            <input type="checkbox" checked={Speakers}></input>
             <label>Speakers</label>
             </div>
 
