@@ -22,9 +22,15 @@ const eventSchema = new mongoose.Schema({
             type: String,
             enum: ["Vegan", "Kosher", "Dairy-Free", "Vegetarian", "Halal", "Keto", "No food", "Other"]
         },
+        foodSpec: {
+            type: String
+        },
         drinks: {
             type: String,
             enum: ["Hard Drinks", "Soft Drinks", "No Drinks"]
+        },
+        drinkSpec: {
+            type: String
         },
         party: {
             speakers: {
